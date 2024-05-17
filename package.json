@@ -1,0 +1,33 @@
+{
+  "devDependencies": {
+    "@eslint/js": "^9.2.0",
+    "eslint": "^9.2.0",
+    "globals": "^15.2.0",
+    "husky": "^9.0.11",
+    "morgan": "^1.10.0",
+    "prettier": "3.2.5"
+  },
+  "type": "module",
+  "scripts": {
+    "prepare": "husky",
+    "lint": "eslint .",
+    "format": "prettier --write \"**/*.js\"",
+    "dev": "node --env-file .env.dev --watch index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.5",
+    "uuid": "^9.0.1",
+    "zod": "^3.23.8"
+  },
+  "name": "gestion-tareas",
+  "description": "- `P`ostgreSQL: Base de datos relacional.\r - `E`xpress: Framework de Node.js para construir APIs.\r - `R`eact: Framework de JavaScript para construir aplicaciones web.\r - `N`ode.js: Entorno de ejecución de JavaScript para el lado del servidor.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
