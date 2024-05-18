@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  db-dev:
+    image: postgres
+    container_name: db-dev
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: app-dev
+    ports:
+        - "5432:5432"
+    volumes:
+        - ./data/db-dev:/var/lib/postgresql
