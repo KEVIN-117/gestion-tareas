@@ -12,10 +12,12 @@
     "prepare": "husky",
     "lint": "eslint .",
     "format": "prettier --write \"**/*.js\"",
-    "dev": "node --env-file .env.dev --watch index.js"
+    "dev": "node --env-file .env.dev --watch index.js",
+    "seed": "node --env-file .env.dev scripts/seed.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
