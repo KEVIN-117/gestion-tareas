@@ -9,9 +9,14 @@ export async function createTask(req, res, next) {
     return res.status(201).json(newTask);
   } catch (error) {
     if (error.code === "23502") {
-      return  res.status(400).json({ message: "Please provide all required fields title, description, user_id" });
-    }else if (error.code === "23505") {
-      return  res.status(400).json({ message: "Task already exists" });
+      return res
+        .status(400)
+        .json({
+          message:
+            "Please provide all required fields title, description, user_id",
+        });
+    } else if (error.code === "23505") {
+      return res.status(400).json({ message: "Task already exists" });
     }
     return next(error);
   }
