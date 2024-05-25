@@ -15,7 +15,10 @@ export async function createTask(task) {
 
 export async function getTasks(id) {
   try {
-    const client = await dbPool.query(`SELECT * FROM tasks WHERE user_id = $1`, [id]);
+    const client = await dbPool.query(
+      `SELECT * FROM tasks WHERE user_id = $1`,
+      [id],
+    );
     return client.rows;
   } catch (error) {
     throw error;

@@ -26,10 +26,9 @@ export async function getUser(data) {
   }
 }
 
-export async function logIn(data){
+export async function logIn(data) {
   try {
-
-  }catch (error){
+  } catch (error) {
     throw error;
   }
 }

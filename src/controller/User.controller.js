@@ -7,10 +7,13 @@ const userService = new UserService();
 export async function login(req, res, next) {
   try {
     const data = req.body;
-    const response = await dbPool.query(`SELECT * FROM users WHERE email = $1`, [data.email]);
+    const response = await dbPool.query(
+      `SELECT * FROM users WHERE email = $1`,
+      [data.email],
+    );
     console.log(response.rows[0]);
     let user = response.rows[0];
-    if(user.email !== data.email){
+    if (user.email !== data.email) {
       return res.status(401).json({
         message: "Email not found",
       });
@@ -63,8 +66,6 @@ export async function register(req, res, next) {
       sameSite: "None",
       maxAge: 24 * 60 * 60 * 1000, // 24 hours or 1 day
     });
-
-
 
     return res.status(201).json({
       message: "Register success",
