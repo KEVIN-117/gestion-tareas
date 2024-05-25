@@ -4,17 +4,20 @@ const taskService = new TaskService();
 
 export async function createTask(req, res, next) {
   try {
+    console.log(req.id);
     const task = req.body;
-    const newTask = await taskService.create(task);
+    const data = {
+      ...task,
+      user_id: req.id,
+    };
+    const newTask = await taskService.create(data);
     return res.status(201).json(newTask);
   } catch (error) {
     if (error.code === "23502") {
-      return res
-        .status(400)
-        .json({
-          message:
-            "Please provide all required fields title, description, user_id",
-        });
+      return res.status(400).json({
+        message:
+          "Please provide all required fields title, description, user_id",
+      });
     } else if (error.code === "23505") {
       return res.status(400).json({ message: "Task already exists" });
     }
@@ -24,7 +27,8 @@ export async function createTask(req, res, next) {
 
 export async function getTasks(req, res) {
   try {
-    const tasks = await taskService.getAll();
+    const id = req.id;
+    const tasks = await taskService.getAll(id);
     res.status(200).json(tasks);
   } catch (error) {
     console.log(error);

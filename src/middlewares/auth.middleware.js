@@ -3,7 +3,8 @@ import { getEnv } from "../../config/env.js";
 
 const { secretToken } = getEnv();
 export function isAuth(req, res, next) {
-  const token = req.cookie.token;
+  console.log(req.cookies);
+  const token = req.cookies.token;
 
   if (!token) {
     return res.status(401).json({

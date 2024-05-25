@@ -15,13 +15,21 @@ export async function createUser(user) {
   }
 }
 
-export async function getUser(id) {
+export async function getUser(data) {
   try {
-    const client = await dbPool.query(`SELECT * FROM users WHERE id = $1`, [
-      id,
+    const client = await dbPool.query(`SELECT * FROM users WHERE email = $1`, [
+      data.email,
     ]);
     return client.rows[0];
   } catch (error) {
+    throw error;
+  }
+}
+
+export async function logIn(data){
+  try {
+
+  }catch (error){
     throw error;
   }
 }

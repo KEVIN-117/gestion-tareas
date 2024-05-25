@@ -9,9 +9,9 @@ export class UserService {
     }
   }
 
-  async getUser(id) {
+  async login(data) {
     try {
-      return await getUser(id);
+      return await getUser(data);
     } catch (error) {
       throw error;
     }

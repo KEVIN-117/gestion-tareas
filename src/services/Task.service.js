@@ -15,9 +15,9 @@ export class TaskService {
     }
   }
 
-  async getAll() {
+  async getAll(id) {
     try {
-      return await getTasks();
+      return await getTasks(id);
     } catch (error) {
       throw error;
     }
